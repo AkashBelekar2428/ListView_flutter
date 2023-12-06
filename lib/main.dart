@@ -40,51 +40,22 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    const nameArr = ['Swift','Java','C','C++','HTML','CSS,Flutter','Dart','iOS','Android','VsCode'];
+
     return Scaffold(
       appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
+
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
+
         title: Text('Listview'),
       ),
-      body:ListView(
-        scrollDirection: Axis.horizontal,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text('One',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text('Two',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text('Three',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text('Four',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text('Five',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text('six',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-          )
-        ],
+      body:ListView.builder(itemBuilder: (context, index) {
+        return Text(nameArr[index], style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),);
+
+      },
+      itemCount: nameArr.length,
+        itemExtent: 100,
       )
-    );
+      );
   }
 }
