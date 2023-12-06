@@ -49,12 +49,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
         title: Text('Listview'),
       ),
-      body:ListView.builder(itemBuilder: (context, index) {
+      body:ListView.separated(itemBuilder: (context, index) {
         return Text(nameArr[index], style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),);
 
       },
       itemCount: nameArr.length,
-        itemExtent: 100,
+        separatorBuilder: (context, index){
+        return Divider(height: 100,thickness: 2,);
+        },
       )
       );
   }
